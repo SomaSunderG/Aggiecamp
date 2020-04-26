@@ -24,13 +24,22 @@ var commentRoutes    = require("./routes/comments"),
 //   console.log('ERROR: ', err.message);
 // });
     
-mongoose.connect("mongodb://localhost:27017/AggieCamp", {useNewUrlParser: true,
+// mongoose.connect("mongodb://localhost:27017/AggieCamp", {useNewUrlParser: true,
+//  useCreateIndex: true
+// }).then(()=> {
+// 	console.log('Connected to DB!');
+// }).catch(err => {
+// 	console.log('ERROR: ', err.message);
+// });
+
+mongoose.connect("mongodb://localhost:27017/in_app_search", {useNewUrlParser: true,
  useCreateIndex: true
 }).then(()=> {
-	console.log('Connected to DB!');
+  console.log('Connected to DB!');
 }).catch(err => {
-	console.log('ERROR: ', err.message);
+  console.log('ERROR: ', err.message);
 });
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
