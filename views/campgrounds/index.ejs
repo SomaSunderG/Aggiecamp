@@ -16,6 +16,18 @@
              <h2>FIND YOUR OUTDOOR ADVENTURE!</h2>
              <p>Making camping fun!</p>
              <p>
+
+             <% if(currentUser && currentUser.isAdmin){ %>
+
+             <a class="btn btn-primary btn-large" href="/campgroundtable">Campgrounds</a>
+
+             <a class="btn btn-primary btn-large" href="/commenttable">Comments</a>
+
+             <a class="btn btn-primary btn-large" href="/usertable">Users</a>
+    
+
+             <% } %>
+
                 <a class="btn btn-primary btn-large" href="/campgrounds/new">Add New Campground</a>
              </p>
 

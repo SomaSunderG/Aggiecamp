@@ -42,6 +42,7 @@ mongoose.connect("mongodb://localhost:27017/in_app_search", {useNewUrlParser: tr
   console.log('ERROR: ', err.message);
 });
 
+var conn = mongoose.connection;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -68,6 +69,30 @@ app.use(function(req, res, next){
    res.locals.error = req.flash("error");
    res.locals.success = req.flash("success");
    next();
+});
+
+app.get("/campgroundtable", function(req, res){
+
+  conn.collection('campgrounds').find().toArray(function(err, results){
+    console.log(results);
+    res.render("campgroundtable",{results:results}); 
+  });
+});
+
+app.get("/commenttable", function(req, res){
+
+  conn.collection('comments').find().toArray(function(err, results){
+    console.log(results);
+    res.render("commenttable",{results:results}); 
+  });
+});
+
+app.get("/usertable", function(req, res){
+
+  conn.collection('users').find().toArray(function(err, results){
+    console.log(results);
+    res.render("usertable",{results:results}); 
+  });
 });
 
 app.use("/", indexRoutes);
