@@ -12,7 +12,7 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next) {
                res.redirect("back");
            }  else {
                // does user own the campground?
-            if(campground.author.id.equals(req.user._id) || req.user.isAdmin){
+            if(foundCampground.author.id.equals(req.user._id) || req.user.isAdmin){
                 next();
             } else {
                 req.flash("error", "You don't have permission to do that");
@@ -34,7 +34,7 @@ middlewareObj.checkCommentOwnership = function(req, res, next) {
                res.redirect("back");
            }  else {
                // does user own the comment?
-            if(comment.author.id.equals(req.user._id) || req.user.isAdmin){
+            if(foundComment.author.id.equals(req.user._id) || req.user.isAdmin){
                next();
             } else {
                 req.flash("error", "User does not have authorization to perform the action!");
