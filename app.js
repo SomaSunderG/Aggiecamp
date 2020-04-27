@@ -18,29 +18,14 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
 
-//   mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true,
-//  useCreateIndex: true
-// }).then(()=> {
-//   console.log('Connected to DB!');
-// }).catch(err => {
-//   console.log('ERROR: ', err.message);
-// });
-    
-// mongoose.connect("mongodb://localhost:27017/AggieCamp", {useNewUrlParser: true,
-//  useCreateIndex: true
-// }).then(()=> {
-// 	console.log('Connected to DB!');
-// }).catch(err => {
-// 	console.log('ERROR: ', err.message);
-// });
-
-mongoose.connect("mongodb://localhost:27017/in_app_search", {useNewUrlParser: true,
- useCreateIndex: true
-}).then(()=> {
-  console.log('Connected to DB!');
-}).catch(err => {
-  console.log('ERROR: ', err.message);
+   mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true,
+  useCreateIndex: true
+ }).then(()=> {
+   console.log('Connected to DB!');
+ }).catch(err => {
+   console.log('ERROR: ', err.message);
 });
+   
 
 var conn = mongoose.connection;
 
