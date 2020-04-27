@@ -13,15 +13,24 @@
 
           <div class="col-md-8 col-xs-12">
 
-             <h2>FIND YOUR OUTDOOR ADVENTURE!</h2>
-             <p>Making camping fun!</p>
+             <h2>FIND YOUR OUTDOOR ADVENTURE!</h2>       
+
+             <p>
+              <form action="/campgrounds" method="GET" class="form-inline">
+               <div class="form-group">
+                   <input type="text" name="search" placeholder="Campground search..." class="form-control">
+                   <input type="submit" value="Search" class="btn btn-default">
+               </div>
+              </form>
+             </p>
+
              <p>
 
              <% if(currentUser && currentUser.isAdmin){ %>
 
              <div class="well well-sm">
 
-             <span>Database tables:</span>
+             <span class="dbtables">DATABASE TABLES:</span>
              <a class="btn btn-primary btn-large" href="/campgroundtable">Campgrounds</a>
 
              <a class="btn btn-primary btn-large" href="/commenttable">Comments</a>
@@ -35,23 +44,16 @@
                 <a class="btn btn-primary btn-large" href="/campgrounds/new">Add New Campground</a>
              </p>
 
-             <p>
-              <form action="/campgrounds" method="GET" class="form-inline">
-               <div class="form-group">
-                   <input type="text" name="search" placeholder="Campground search..." class="form-control">
-                   <input type="submit" value="Search" class="btn btn-default">
-               </div>
-              </form>
-             </p>
-
           </div>
              
          </div>
      </header>
+
+
      <hr>
 
      <div class="container">
-     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+     <div class="row text-center display-flex">
 
       <div class="col-md-12">
              <% if(noMatch !== null) { %>
